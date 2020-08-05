@@ -3,18 +3,22 @@ from vsearch import search4letters
 
 app = Flask(__name__)
 
-"""Данные запроса сохраняются в текстовом файле и именем vsearch.log"""
+
 #def log_request(req: 'flask_request', res: str) -> None:
+"""Данные запроса сохраняются в текстовом файле и именем vsearch.log"""
 #    with open('vsearch.log', 'a') as log:
 #        print(req.form, req.remote_addr, req.user_agent, res, file = log, sep='|')
 
 
 def log_request(req: 'flask_request', res: str) -> None:
+    """Журналирует веб-запрос и возвращает результаты."""
     dbcomfig = {'host': '127.0.0.1',
                 'user': 'vsearch',
                 'password': 'vsearchpasswd',
                 'database': 'vsearchlogDB',}
+
     import mysql.connector
+
     conn = mysql.connector.connect(**dbcomfig)
     cursor = conn.cursor()
     _SQL = """insert into log
