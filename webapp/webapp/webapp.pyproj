@@ -21,7 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ClassCont.py">
+    <Compile Include="UseDatabase.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="vsearch4web.py" />
